@@ -1,5 +1,7 @@
 # GraphQL Scalars
 
+__Note! This package is currently under development. Check back for updates.__
+
 Import directly into your resolver function and declare each scalar in your schema. See below for an example.
 
 ```
@@ -22,7 +24,7 @@ export default makeExecutableSchema({
 
 ## Time
 
-Accepts strings formatted as "HH:MM" like the standard HTML5 input element. This scalar automatically prepends leading zeros and validates time values (i.e. 24-hour maximum).
+Accepts strings formatted as HH:MM like the standard HTML5 input element. This scalar automatically prepends leading zeros and validates time values (i.e. 24-hour maximum).
 
 ## Date 
 
