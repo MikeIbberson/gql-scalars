@@ -13,9 +13,8 @@ export default makeExecutableSchema({
     typeDefs: gql`
     
         scalar Time 
+        scalar Date
 
-        ## Likely this should be abstracted into another file.
-        ## And there would be a lot more for Query and Mutation
     `
 });
 
@@ -24,3 +23,7 @@ export default makeExecutableSchema({
 ## Time
 
 Accepts strings formatted as "HH:MM" like the standard HTML5 input element. This scalar automatically prepends leading zeros and validates time values (i.e. 24-hour maximum).
+
+## Date 
+
+Accepts strings that follow ISO Date formatting standards. This scalar will output YYYY-MM-DD regardless the input formatting. It strips timestamps and converts the date object to a simple string.
