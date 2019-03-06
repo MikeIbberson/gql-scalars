@@ -1,0 +1,45 @@
+{
+  "name": "gql-scalars",
+  "version": "1.0.0",
+  "description": "Custom GraphQL scalar types",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest --watch --verbose",
+    "build": "babel src -d dist",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikeIbberson/gql-scalars.git"
+  },
+  "keywords": [
+    "graphql",
+    "scalars"
+  ],
+  "author": "MikeIbberson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MikeIbberson/gql-scalars/issues"
+  },
+  "homepage": "https://github.com/MikeIbberson/gql-scalars#readme",
+  "dependencies": {
+    "graphql": "^14.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.4",
+    "jest": "^24.1.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "globals": {
+      "__DEV__": true
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist"
+    ]
+  }
+}
