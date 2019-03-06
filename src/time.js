@@ -1,4 +1,6 @@
-import { GraphQLScalarType, Kind } from 'graphql';
+import { GraphQLScalarType } from 'graphql';
+import { Kind } from 'graphql/language';
+import { prependLeadingZero } from './date';
 
 export default new GraphQLScalarType({
 
@@ -47,7 +49,7 @@ export class TimeBuilder_HHMM {
             throw new Error('Hour value cannot be higher than 24');
         }
 
-        return this.prependLeadingZero(this.hours);
+        return prependLeadingZero(this.hours);
     }
 
     getMinutes() {
@@ -56,7 +58,7 @@ export class TimeBuilder_HHMM {
             throw new Error('Hour value cannot be higher than 59');
         }
 
-        return this.prependLeadingZero(this.minutes);
+        return prependLeadingZero(this.minutes);
     }
 
     validateLength(str) {
@@ -65,12 +67,6 @@ export class TimeBuilder_HHMM {
         }
 
         return true;
-    }
-
-    prependLeadingZero(str) {
-        return str.length === 1 ?
-            `0${str}` :
-            str;
     }
 
 }
