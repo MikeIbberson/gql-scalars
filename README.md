@@ -1,2 +1,1 @@
-# gql-scalars
-Custom GraphQL scalars
+# GraphQL Scalars
