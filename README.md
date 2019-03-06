@@ -6,11 +6,12 @@ Import directly into your resolver function and declare each scalar in your sche
 import { merge } from 'lodash';
 import { gql } from 'apollo-server-express';
 import { makeExecutableSchema } from 'graphql-tools';
-import CustomScalars from '@MikeIbberson/gql-scalars';
+import CustomScalars from 'gql-scalars';
 
 export default makeExecutableSchema({
     resolvers: merge({}, CustomScalars),
     typeDefs: gql`
+    
         scalar Time 
 
         ## Likely this should be abstracted into another file.
