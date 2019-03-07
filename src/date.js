@@ -2,6 +2,7 @@ import { GraphQLScalarType } from 'graphql';
 import { Kind } from 'graphql/language';
 
 export default new GraphQLScalarType({
+
     name: 'Date',
     description: 'ISO standard YYYY-MM-DD string',
 
@@ -9,7 +10,7 @@ export default new GraphQLScalarType({
     parseValue: value => formatDateString(value),
 
     parseLiteral: ast =>
-        ast.kind === Kind.INT ?
+        ast.kind === Kind.STRING ?
             formatDateString(ast.value) :
             null
 
@@ -17,6 +18,7 @@ export default new GraphQLScalarType({
 
 export const formatDateString = str => {
     let date = new Date(str);
+
     if (!(date instanceof Date) || isNaN(date)) {
         throw new TypeError('Invalid date input value');
     }

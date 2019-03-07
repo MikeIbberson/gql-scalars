@@ -1,4 +1,5 @@
-import { prependLeadingZero, formatDateString } from '../src/date';
+import { Kind } from 'graphql/language';
+import date, { prependLeadingZero, formatDateString } from '../src/date';
 
 describe('date utility functions', () => {
 
@@ -28,3 +29,18 @@ describe('date utility functions', () => {
 
 });
 
+describe('date scalar integration', () => {
+
+    it('should have name a name', () =>
+        expect(date.name)
+            .toMatch('Date'));
+
+    it('should return null if provided an integer', () =>
+        expect(date.parseLiteral({ kind: Kind.INT }))
+            .toBeNull());
+
+    it('should return date if given date string', () =>
+        expect(date.parseLiteral({ kind: Kind.STRING, value: '03-21-2019' }))
+            .toMatch('2019-03-21'));
+
+});
