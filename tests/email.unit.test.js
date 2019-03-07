@@ -1,5 +1,5 @@
 import { Kind } from 'graphql/language';
-import email, { validateEmail } from '../src/email';
+import Email, { validateEmail } from '../src/email';
 
 const validTLDWithOneDecimal = 'hello@domain.com';
 const validTLDWithTwoDecimals = 'hello@domain.com.ca.ru';
@@ -37,23 +37,23 @@ describe('email validation function', () => {
 describe('email scalar integration', () => {
 
     it('should have name a name', () =>
-        expect(email.name)
+        expect(Email.name)
             .toMatch('Email'));
 
     it('should return null if AST is not a string', () =>
-        expect(email.parseLiteral({ kind: Kind.INT }))
+        expect(Email.parseLiteral({ kind: Kind.INT }))
             .toBeNull());
 
     it('should return self if AST is a valid email string', () =>
-        expect(email.parseLiteral({ kind: Kind.STRING, value: validIDWithOneDecimal }))
+        expect(Email.parseLiteral({ kind: Kind.STRING, value: validIDWithOneDecimal }))
             .toMatch(validIDWithOneDecimal));
 
     it('should fail if invalid email', () =>
-        expect(() => email.parseValue('notanemaiL@hello'))
+        expect(() => Email.parseValue('notanemaiL@hello'))
             .toThrowError());
 
     it('should return self', () =>
-        expect(email.serialize('wow'))
+        expect(Email.serialize('wow'))
             .toMatch('wow'));
 
 });
