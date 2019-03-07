@@ -34,3 +34,7 @@ Accepts strings that follow ISO Date formatting standards. This scalar will outp
 ## Email
 
 Accepts all valid email formats. This includes those with multiple top-level domains. Currently, this scalar does not support domain-specific email address validation.
+
+## Phone 
+
+Accepts all popular North American phone number formatting, including those prefixed with a country code (ie "+1"). This scalar serializes a prettified string in the following format: (xxx) xxx-xxxx.
