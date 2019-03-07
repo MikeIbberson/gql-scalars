@@ -14,8 +14,9 @@ export default makeExecutableSchema({
     resolvers: merge({}, CustomScalars),
     typeDefs: gql`
     
-        scalar Time 
         scalar Date
+        scalar Email
+        scalar Time 
 
     `
 });
@@ -29,3 +30,7 @@ Accepts strings formatted as HH:MM like the standard HTML5 input element. This s
 ## Date 
 
 Accepts strings that follow ISO Date formatting standards. This scalar will output YYYY-MM-DD regardless the input formatting. It strips timestamps and converts the date object to a simple string.
+
+## Email
+
+Accepts all valid email formats. This includes those with multiple top-level domains. Currently, this scalar does not support domain-specific email address validation.
