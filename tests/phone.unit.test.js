@@ -36,8 +36,8 @@ describe('phone validation functions', () => {
 describe('phone scalar integration', () => {
 
     it('should have a name', () =>
-        expect(Phone.name)
-            .toMatch('Phone'));
+        expect(Phone)
+            .toHaveProperty('name', 'Phone'));
 
     it('should fail if not given a string', () =>
         expect(Phone.parseLiteral({ kind: Kind.INT }))

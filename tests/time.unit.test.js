@@ -42,8 +42,8 @@ describe('time validation functions', () => {
 describe('time scalar integration', () => {
 
     it('should have a name', () =>
-        expect(Time.name)
-            .toMatch('Time'));
+        expect(Time)
+            .toHaveProperty('name', 'Time'));
 
     it('should fail if provided something other than a string', () =>
         expect(Time.parseLiteral({ kind: Kind.ID }))

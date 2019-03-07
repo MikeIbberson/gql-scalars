@@ -15,7 +15,7 @@ export default new GraphQLScalarType({
 
 });
 
-const validatePostalCode = val => {
+export const validatePostalCode = val => {
     let trimmed = val.replace(/ /g, '');
 
     if (!/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/.test(trimmed)) {
