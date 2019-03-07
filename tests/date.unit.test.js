@@ -32,8 +32,8 @@ describe('date utility functions', () => {
 describe('date scalar integration', () => {
 
     it('should have name a name', () =>
-        expect(Date.name)
-            .toMatch('Date'));
+        expect(Date)
+            .toHaveProperty('name', 'Date'));
 
     it('should return null if provided an integer', () =>
         expect(Date.parseLiteral({ kind: Kind.INT }))

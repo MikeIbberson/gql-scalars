@@ -37,8 +37,8 @@ describe('email validation function', () => {
 describe('email scalar integration', () => {
 
     it('should have name a name', () =>
-        expect(Email.name)
-            .toMatch('Email'));
+        expect(Email)
+            .toHaveProperty('name', 'Email'));
 
     it('should return null if AST is not a string', () =>
         expect(Email.parseLiteral({ kind: Kind.INT }))

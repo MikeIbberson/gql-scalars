@@ -16,6 +16,8 @@ export default makeExecutableSchema({
     
         scalar Date
         scalar Email
+        scalar Phone
+        scalar Postal
         scalar Time 
 
     `
@@ -37,4 +39,7 @@ Accepts all valid email formats. This includes those with multiple top-level dom
 
 ## Phone 
 
-Accepts all popular North American phone number formatting, including those prefixed with a country code (ie "+1"). This scalar serializes a prettified string in the following format: (xxx) xxx-xxxx.
+Accepts all popular North American phone number formatting, including those prefixed with a country code (ie +1). This scalar serializes a prettified string in the following format: (xxx) xxx-xxxx.
+
+## Postal 
+Accepts a Canadian postal code with or without spaces (ie. L1L 1L1). This scalar serializes the postal code as uppercase.
