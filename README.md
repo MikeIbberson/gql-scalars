@@ -4,6 +4,8 @@ __Note! This package is currently under development. Check back for updates.__
 
 Import directly into your resolver function and declare each scalar in your schema. See below for an example.
 
+There is one scalar type missing from this package; not every project will require it. To convert strings into MongoDB ObjectIds, please visit [this gist](https://gist.github.com/MikeIbberson/557ebdddea51d246a5cfc24557268741).
+
 ```
 import { merge } from 'lodash';
 import { gql } from 'apollo-server-express';
