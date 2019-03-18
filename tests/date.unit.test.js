@@ -1,5 +1,9 @@
 import { Kind } from 'graphql/language';
-import Date, { prependLeadingZero, formatDateString } from '../src/date';
+import Date, { validateDateString, prependLeadingZero, formatDateString } from '../src/date';
+
+beforeEach(() => {
+    process.env.TZ = 'Canada/Eastern';
+});
 
 describe('date utility functions', () => {
 
@@ -12,15 +16,11 @@ describe('date utility functions', () => {
             .toMatch('11'));
 
     it('should fail without a valid date string', () =>
-        expect(() => formatDateString('heythere'))
-            .toThrowError());
-
-    it('should fail without a valid date string', () =>
-        expect(() => formatDateString('heythere'))
+        expect(() => validateDateString('heythere'))
             .toThrow(TypeError));
 
     it('should format date to YYYY-MM-DD format', () =>
-        expect(formatDateString('03/25/2015'))
+        expect(formatDateString('2019-03-21T04:00:00.000Z'))
             .toMatch(/^(\d{4}-\d{2}-\d{2})$/));
 
     it('should format date to YYYY-MM-DD format without changing value', () =>
@@ -41,6 +41,6 @@ describe('date scalar integration', () => {
 
     it('should return date if given date string', () =>
         expect(Date.parseLiteral({ kind: Kind.STRING, value: '03-21-2019' }))
-            .toMatch('2019-03-21'));
+            .toHaveProperty('getMonth'));
 
 });

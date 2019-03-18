@@ -6,22 +6,28 @@ export default new GraphQLScalarType({
     name: 'Date',
     description: 'ISO standard YYYY-MM-DD string',
 
-    serialize: value => value,
-    parseValue: value => formatDateString(value),
+    serialize: value => formatDateString(value),
+    parseValue: value => validateDateString(value),
 
     parseLiteral: ast =>
         ast.kind === Kind.STRING ?
-            formatDateString(ast.value) :
+            validateDateString(ast.value) :
             null
 
 });
 
-export const formatDateString = str => {
+export const validateDateString = str => {
     let date = new Date(str);
 
     if (!(date instanceof Date) || isNaN(date)) {
         throw new TypeError('Invalid date input value');
     }
+
+    return date;
+};
+
+export const formatDateString = str => {
+    let date = new Date(str);
 
     return [
         date.getFullYear(),
