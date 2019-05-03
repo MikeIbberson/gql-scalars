@@ -1,4 +1,4 @@
-import Positive, { verifyPositivity } from '../src/positive';
+import Positive, { verifyPositivity } from '../positive';
 
 describe('positive scalar type', () => {
     it('should reject a value of 0', () =>
@@ -26,5 +26,4 @@ describe('positive scalar type integration', () => {
     if ('should return null if not provided a string', () =>
         expect(Postal.parseLiteral({ kind: Kind.STRING }))
             .toBe(0));
-
 });

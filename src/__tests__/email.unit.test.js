@@ -1,5 +1,5 @@
 import { Kind } from 'graphql/language';
-import Email, { validateEmail } from '../src/email';
+import Email, { validateEmail } from '../email';
 
 const validTLDWithOneDecimal = 'hello@domain.com';
 const validTLDWithTwoDecimals = 'hello@domain.com.ca.ru';
