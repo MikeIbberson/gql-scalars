@@ -1,4 +1,4 @@
-import Postal, { validatePostalCode } from '../src/postal';
+import Postal, { validatePostalCode } from '../postal';
 
 describe('postal code validation function', () => {
 

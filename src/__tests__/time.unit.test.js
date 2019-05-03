@@ -1,5 +1,5 @@
 import { Kind } from 'graphql/language';
-import Time, { validateTimeString, formatTimeString } from '../src/time';
+import Time, { validateTimeString, formatTimeString } from '../time';
 
 const validTimeString = '10:20';
 

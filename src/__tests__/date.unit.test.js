@@ -1,5 +1,5 @@
 import { Kind } from 'graphql/language';
-import Date, { validateDateString, prependLeadingZero, formatDateString } from '../src/date';
+import Date, { validateDateString, prependLeadingZero, formatDateString } from '../date';
 
 beforeEach(() => {
     process.env.TZ = 'Canada/Eastern';

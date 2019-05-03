@@ -1,5 +1,5 @@
 import { Kind } from 'graphql/language';
-import Phone, { sanitizePhoneNumber, formatPhoneNumberWithBraces } from '../src/phone';
+import Phone, { sanitizePhoneNumber, formatPhoneNumberWithBraces } from '../phone';
 
 describe('phone validation functions', () => {
 

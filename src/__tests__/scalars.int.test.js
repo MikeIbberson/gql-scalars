@@ -1,4 +1,4 @@
-import Scalars from '../src';
+import Scalars from '../index';
 
 describe.each(['Date', 'Email', 'Phone', 'Postal', 'Time'])
     ('verify export', name =>
