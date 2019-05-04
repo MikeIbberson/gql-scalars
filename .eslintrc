@@ -1,0 +1,20 @@
+{
+  "extends": "airbnb",
+  "plugins": [
+    "jest"
+  ],
+  "env": {
+    "jest/globals": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "linebreak-style": [
+      "error",
+      "windows"
+    ]
+  }
+}

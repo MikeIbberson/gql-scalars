@@ -4,7 +4,9 @@
   "description": "Custom GraphQL scalar types",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest --watch --verbose",
+    "dev": "jest --watch --verbose",
+    "test": "jest",
+    "lint": "eslint **/*.js",
     "build": "babel src -d dist",
     "prepublish": "npm run build"
   },
@@ -23,13 +25,19 @@
   },
   "homepage": "https://github.com/MikeIbberson/gql-scalars#readme",
   "dependencies": {
-    "graphql": "^14.1.1"
+    "eslint-plugin-jest": "^22.5.1",
+    "graphql": "^14.2.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.3.4",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.0",
     "jest": "^24.1.0"
   },
   "jest": {
