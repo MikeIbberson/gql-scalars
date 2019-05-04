@@ -1,6 +1,6 @@
 import { GraphQLScalarType } from 'graphql';
 import { Kind } from 'graphql/language';
-import prependLeadingZero from '../helpers';
+import { prependLeadingZero } from '../helpers';
 
 export default new GraphQLScalarType({
 

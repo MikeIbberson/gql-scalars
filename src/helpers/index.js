@@ -1,11 +1,23 @@
-/**
- * Converts any parameter into a string,
- * then adds a leading 0 if it's a single character.
- * @param {string} str
- */
+import { GraphqlError } from 'graphql/error';
+import { Kind } from 'graphql/language';
 
-export default function prependLeadingZero(str) {
+export function prependLeadingZero(str) {
+  // only lead single-character strings
   return String(str).length <= 1
     ? `0${str}`
     : str;
+}
+
+export function parseKind(
+  { kind: type, value },
+  kindType = 'STRING',
+  fn,
+) {
+  if (!fn) {
+    throw new GraphqlError('Requires a function to parseKind');
+  } else if (type !== Kind[kindType]) {
+    return null;
+  }
+
+  return fn(value);
 }

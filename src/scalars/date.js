@@ -1,7 +1,7 @@
 import { GraphQLScalarType } from 'graphql';
 import { GraphQLError } from 'graphql/error';
 import { Kind } from 'graphql/language';
-import prependLeadingZero from '../helpers';
+import { prependLeadingZero } from '../helpers';
 
 export function validateDateString(dateString) {
   const date = new Date(dateString);
