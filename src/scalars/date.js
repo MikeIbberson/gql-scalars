@@ -1,7 +1,6 @@
 import { GraphQLScalarType } from 'graphql';
 import { GraphQLError } from 'graphql/error';
-import { Kind } from 'graphql/language';
-import { prependLeadingZero } from '../helpers';
+import { prependLeadingZero, parseKind } from '../helpers';
 
 export function validateDateString(dateString) {
   const date = new Date(dateString);
@@ -31,8 +30,5 @@ export default new GraphQLScalarType({
   description: 'ISO standard YYYY-MM-DD string',
   serialize: value => formatDateString(value),
   parseValue: value => validateDateString(value),
-  parseLiteral: ({ kind: type, value }) => {
-    if (type !== Kind.STRING) return null;
-    return validateDateString(value);
-  },
+  parseLiteral: ast => parseKind(ast, 'STRING', validateDateString),
 });

@@ -8,6 +8,8 @@ export function prependLeadingZero(str) {
     : str;
 }
 
+// all scalars perform the same check
+// so might as well abstract it
 export function parseKind(
   { kind: type, value },
   kindType = 'STRING',

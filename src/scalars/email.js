@@ -1,6 +1,6 @@
 import { GraphQLScalarType } from 'graphql';
 import { GraphQLError } from 'graphql/error';
-import { Kind } from 'graphql/language';
+import { parseKind } from '../helpers';
 
 export function validateEmail(val) {
   // simple regex for detecting most valid email cases
@@ -17,8 +17,5 @@ export default new GraphQLScalarType({
   description: 'Valid email address',
   serialize: value => value,
   parseValue: value => validateEmail(value),
-  parseLiteral: ({ kind: type, value }) => {
-    if (type !== Kind.STRING) return null;
-    return validateEmail(value);
-  },
+  parseLiteral: ast => parseKind(ast, 'STRING', validateEmail),
 });

@@ -1,28 +1,31 @@
 import { GraphQLScalarType } from 'graphql';
+import { GraphqlError } from 'graphql/error';
 import { parseKind } from '../helpers';
 
-export const sanitizePhoneNumber = value => {
-  let cleaned = ('' + value).replace(/\D/g, '');
+export function sanitizePhoneNumber(value) {
+  let cleaned = String(value).replace(/\D/g, '');
 
-  if (parseInt(cleaned.charAt(0)) === 1) {
+  // if country code is present, remove it
+  if (parseInt(cleaned.charAt(0), 10) === 1) {
     cleaned = cleaned.substr(1);
   }
 
+  // all north american numbers are 10 digits long
   if (cleaned.length !== 10) {
-    throw new Error('Invalid phone number');
+    throw new GraphqlError('Invalid phone number');
   }
 
   return cleaned;
+}
 
-};
-
-export const formatPhoneNumberWithBraces = value => {
-  let groups = value.match(/^(\d{3})(\d{3})(\d{4})$/);
-
-  return groups ?
-    '(' + groups[1] + ') ' + groups[2] + '-' + groups[3]
+export function formatPhoneNumberWithBraces(value) {
+  const groups = value.match(/^(\d{3})(\d{3})(\d{4})$/);
+  return groups
+    // common phone number prettifying
+    // area code in braces
+    ? `(${groups[1]}) ${groups[2]}-${groups[3]}`
     : null;
-};
+}
 
 export default new GraphQLScalarType({
   name: 'Phone',
