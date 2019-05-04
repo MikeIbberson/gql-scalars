@@ -4,7 +4,9 @@
   "description": "Custom GraphQL scalar types",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest --watch --verbose",
+    "dev": "jest --watch --verbose",
+    "test": "jest",
+    "lint": "eslint **/*.js",
     "build": "babel src -d dist",
     "prepublish": "npm run build"
   },
