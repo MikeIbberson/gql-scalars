@@ -1,13 +1,15 @@
-import Date from './date';
-import Email from './email';
-import Phone from './phone';
-import Postal from './postal';
-import Time from './time';
+import Date from './scalars/date';
+import Email from './scalars/email';
+import Phone from './scalars/phone';
+import PositiveInt from './scalars/positive';
+import Postal from './scalars/postal';
+import Time from './scalars/time';
 
 export default {
-    Date,
-    Email,
-    Phone,
-    Postal,
-    Time
+  Date,
+  Email,
+  Phone,
+  PositiveInt,
+  Postal,
+  Time,
 };

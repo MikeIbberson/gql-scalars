@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/MikeIbberson/gql-scalars#readme",
   "dependencies": {
+    "eslint-plugin-jest": "^22.5.1",
     "graphql": "^14.2.1"
   },
   "devDependencies": {
