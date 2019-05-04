@@ -3,26 +3,16 @@ import { GraphQLError } from 'graphql/error';
 import { Kind } from 'graphql/language';
 import prependLeadingZero from '../helpers';
 
-/**
- * Converts string into a Date object.
- * @param {string} dateString
- * @return {object}
- */
-
 export function validateDateString(dateString) {
   const date = new Date(dateString);
+
+  // the date constructor does not error with bad instantiation
   if (!(date instanceof Date) || String(date).localeCompare('Invalid Date') === 0) {
     throw new GraphQLError('Invalid date input value');
   }
 
   return date;
 }
-
-/**
- * Formats a Date object to YYYY-MM-DD.
- * @param {string} dateString
- * @return {string}
- */
 
 export function formatDateString(dateString) {
   const date = new Date(dateString);
@@ -31,6 +21,8 @@ export function formatDateString(dateString) {
     prependLeadingZero(date.getMonth() + 1),
     prependLeadingZero(date.getDate()),
   ];
+
+  // formats into YYYY-MM-DD
   return dateParts.join('-');
 }
 
